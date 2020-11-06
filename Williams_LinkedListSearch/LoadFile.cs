@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Text;
 
 namespace Williams_LinkedListSearch
@@ -16,7 +18,11 @@ namespace Williams_LinkedListSearch
             MetaData tempMetaData;
             LinkedList list = new LinkedList();
 
-            System.IO.StreamReader file = new System.IO.StreamReader("yob2019.txt");
+            string fileName = "yob2019.txt";
+            string filePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string pathToFile = Path.Combine(filePath, fileName);
+
+            System.IO.StreamReader file = new System.IO.StreamReader(pathToFile);
             while ((line = file.ReadLine()) != null)
             {
                 for (int i = 0; i < line.Length; i++)
